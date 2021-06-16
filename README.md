@@ -5,10 +5,11 @@
 
 1. Ensure that the <b>tasks.yaml</b> Ansible playbook file and the <b>hosts</b> inventory file are in the same folder on your machine. You can download them [here](https://github.com/oci-hpc/oci-gromacs/archive/refs/heads/main.zip), and move them to the appropriate machine if necessary with:
 <pre>
-scp -i &ltpath to your private ssh key&gt tasks.yaml hosts opc@&ltdestination machine ip address&gt:&ltdestination directory&gt
+scp -i &ltpath to your SSH private key&gt tasks.yaml hosts opc@&ltdestination machine ip address&gt:&ltdestination directory&gt
 </pre>
 2. Navigate to the directory on your destination machine containing <b>hosts</b>, and edit <b>hosts</b>. Replace the IP address placeholder text with the IP address of the destination machine.
 <pre>
+ssh -i &ltpath to your SSH private key&gt opc@&ltdestination machine ip address&gt
 cd &ltpath to parent directory of <b>hosts</b>&gt
 vi hosts
 </pre>
