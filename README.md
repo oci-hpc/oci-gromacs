@@ -7,7 +7,7 @@
 <pre>
 scp -i &ltpath to your private ssh key&gt tasks.yaml hosts opc@&ltdestination machine ip address&gt:&ltdestination directory&gt
 </pre>
-2. Edit hosts and replace the IP address placeholder text with the IP address of the destination machine.
+2. Edit <b>hosts</b> and replace the IP address placeholder text with the IP address of the destination machine.
 <pre>
 vi hosts
 </pre>
