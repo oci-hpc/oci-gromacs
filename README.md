@@ -13,5 +13,5 @@ ansible-playbook -i hosts tasks.yaml
 </pre>
 3. Ensure that the variable definitions written in <b>/home/opc/.bashrc</b> are set in your environment.
 <pre>
-source ~/.bashrc
+source /home/opc/.bashrc
 </pre>
