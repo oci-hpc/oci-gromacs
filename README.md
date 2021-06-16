@@ -1,7 +1,7 @@
 # oci-gromacs
 ### Ansible setup of Gromacs molecular dynamics application
 
-Steps:
+##### Steps:
 
 1. Ensure that the <b>tasks.yaml</b> Ansible playbook file is on your machine. You can download it [here](https://github.com/oci-hpc/oci-gromacs/archive/refs/heads/main.zip), and move it to the appropriate machine if necessary with:
 <pre>
