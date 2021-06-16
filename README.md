@@ -11,7 +11,7 @@ scp -i &ltpath to your private ssh key&gt tasks.yaml opc@&ltdestination machine 
 <pre>
 ansible-playbook -i hosts tasks.yaml
 </pre>
-3. Ensure that the variable definitions set in /home/opc/.bashrc are set in your environment.
+3. Ensure that the variable definitions set in <b>/home/opc/.bashrc</b> are set in your environment.
 <pre>
 source ~/.bashrc
 </pre>
