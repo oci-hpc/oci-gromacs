@@ -7,15 +7,19 @@
 <pre>
 scp -i &ltpath to your private ssh key&gt tasks.yaml hosts opc@&ltdestination machine ip address&gt:&ltdestination directory&gt
 </pre>
-2. Navigate to the directory on your destination machine containing <b>tasks.yaml</b> and <b>hosts</b> and execute the tasks.
+2. Edit hosts and replace the IP address placeholder text with the IP address of the destination machine.
+<pre>
+vi hosts
+</pre>
+3. Navigate to the directory on your destination machine containing <b>tasks.yaml</b> and <b>hosts</b> and execute the tasks.
 <pre>
 ansible-playbook -i hosts tasks.yaml
 </pre>
-3. Ensure that the variable definitions written in <b>/home/opc/.bashrc</b> are set in your environment.
+4. Ensure that the variable definitions written in <b>/home/opc/.bashrc</b> are set in your environment.
 <pre>
 source /home/opc/.bashrc
 </pre>
-4. Validate that the <b>gmx</b> command is now available. Details about the command's usage should be returned as output.
+5. Validate that the <b>gmx</b> command is now available. Details about the command's usage should be returned as output.
 <pre>
 gmx
 </pre>
