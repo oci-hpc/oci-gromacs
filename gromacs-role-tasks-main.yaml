@@ -1,0 +1,60 @@
+---
+
+# useful commands:
+
+# ssh -i /home/opc/.ssh/id_rsa opc@152.70.87.80
+# scp -i /home/opc/.ssh/id_rsa gromacs-role-tasks-main.yaml opc@152.70.87.80:/home/opc/playbooks
+# ansible-playbook -i hosts gromacs-role-tasks-main.yaml
+
+- name: Set up Gromacs
+  hosts: servers
+  become: false
+
+  tasks:
+  - name: Create /mnt/block/gromacs if it does not exist
+    ansible.builtin.file:
+      path: /mnt/block/gromacs
+      state: directory
+      mode: '0755'
+      owner: opc
+      group: opc
+
+  - name: Download .tar file URL for Gromacs
+    get_url:
+      url: https://objectstorage.us-phoenix-1.oraclecloud.com/p/1qRcaB09pZAn7g3Fr878xpO_grM2z3-bYr5yPCEkhSy4ESHW8_gd-91nnVuSYcQ6/n/hpc/b/HPC_APPS/o/gromacs-compiled-2020.1.tar # {{ gromacs_tar_file_url }} # CREATE VARIABLE
+      dest: /mnt/block/gromacs/
+      mode: '0755'
+      owner: opc
+      group: opc
+
+  - name: Untar Gromacs .tar file
+    ansible.builtin.unarchive:
+      src: "{{ item }}"
+      dest: /mnt/block/gromacs
+    with_fileglob:
+    - "/mnt/block/gromacs/*.tar"
+
+  # - name: append command to add to $PATH in /home/opc/.bashrc
+  #   shell: "echo export PATH=/mnt/block/gromacs/binaries/bin/:'$PATH' | sudo tee -a /home/opc/.bashrc"
+
+  - name: append source command to /home/opc/.bashrc
+    shell: "echo source /mnt/block/gromacs/binaries/bin/GMXRC | sudo tee -a /home/opc/.bashrc"
+
+  - name: append command to add to $PATH in /home/opc/.bashrc
+    shell: "echo export PATH=/mnt/block/gromacs/binaries/bin/:'$PATH' | sudo tee -a /home/opc/.bashrc"
+
+  - name: Create /mnt/block/gromacs/work if it does not exist
+    ansible.builtin.file:
+      path: /mnt/block/gromacs/work
+      state: directory
+      mode: '0755'
+      owner: opc
+      group: opc
+
+  - name: Download .tar file URL for model
+    get_url:
+      url: https://objectstorage.us-phoenix-1.oraclecloud.com/p/fyZU6e7ttYgjTGIQNnPNUG6btTkkUyDyG1K1qNEQJpE/n/hpc/b/HPC_APPS/o/gromacs_benchMEM.tpr # {{ model_tar_file_url }} # CREATE VARIABLE
+      dest: /mnt/block/gromacs/work
+      mode: '0755'
+      owner: opc
+      group: opc
