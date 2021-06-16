@@ -3,7 +3,7 @@
 
 Steps:
 
-1. Ensure that <b>tasks.yaml</b> is on your machine. You can download it [here](https://github.com/oci-hpc/oci-gromacs/archive/refs/heads/main.zip), and move it to the appropriate machine if necessary with:
+1. Ensure that the <b>tasks.yaml</b> Ansible playbook file is on your machine. You can download it [here](https://github.com/oci-hpc/oci-gromacs/archive/refs/heads/main.zip), and move it to the appropriate machine if necessary with:
 <pre>
 scp -i &ltpath to your private ssh key&gt tasks.yaml opc@&ltdestination machine ip address&gt:&ltdestination directory&gt
 </pre>
