@@ -7,11 +7,12 @@
 <pre>
 scp -i &ltpath to your private ssh key&gt tasks.yaml hosts opc@&ltdestination machine ip address&gt:&ltdestination directory&gt
 </pre>
-2. Edit <b>hosts</b> and replace the IP address placeholder text with the IP address of the destination machine.
+2. Navigate to the directory on your destination machine containing <b>hosts</b>, and edit <b>hosts</b>. Replace the IP address placeholder text with the IP address of the destination machine.
 <pre>
+cd &ltpath to parent directory of <b>hosts</b>&gt
 vi hosts
 </pre>
-3. Navigate to the directory on your destination machine containing <b>tasks.yaml</b> and <b>hosts</b> and execute the tasks.
+3. From within the directory on your destination machine containing <b>tasks.yaml</b> and <b>hosts</b> and execute the tasks.
 <pre>
 ansible-playbook -i hosts tasks.yaml
 </pre>
