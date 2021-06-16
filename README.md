@@ -7,7 +7,7 @@ Steps:
 <pre>
 scp -i &ltpath to your private ssh key&gt tasks.yaml opc@&ltdestination machine ip address&gt:&ltdestination directory&gt
 </pre>
-2. Navigate to the directory on your destination machine containing <b>tasks.yaml</b> and execute the tasks:
+2. Navigate to the directory on your destination machine containing <b>tasks.yaml</b> and execute the tasks.
 <pre>
 ansible-playbook -i hosts tasks.yaml
 </pre>
