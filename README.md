@@ -15,7 +15,7 @@ ansible-playbook -i hosts tasks.yaml
 <pre>
 source /home/opc/.bashrc
 </pre>
-4. Validate that the gmx command is now available. Details about the command's usage should be returned as output.
+4. Validate that the <b>gmx</b> command is now available. Details about the command's usage should be returned as output.
 <pre>
 gmx
 </pre>
